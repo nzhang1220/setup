@@ -19,10 +19,12 @@ platforms:
             - '5432 5432 tcp 0.0.0.0/0'
       compute/oneops.1.Compute:
         compute:
-          size: M
+          size: S
+      os/oneops.1.Os:
+        os:
           ostype: centos-7.2
           repo_list:
-           - 'yum -y localinstall https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64/pgdg-centos94-9.2-2.noarch.rpm'
+            - 'yum -y localinstall https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64/pgdg-centos94-9.2-2.noarch.rpm'
       postgresql/oneops.1.Postgresql:
         postgresql:
           version: 9.2
@@ -33,7 +35,7 @@ platforms:
             max_connections: 1000
       database/oneops.1.Database:
         database:
-          password: 'changeme'
+          password: 'yghxln'
           dbname: $OO_LOCAL{searchmqdb}
           username: $OO_LOCAL{dbuser}
 
@@ -54,9 +56,9 @@ platforms:
       distbase: $OO_GLOBAL{DISTBASE}
       version: $OO_GLOBAL{VERSION}
       broker-cert-location: /var/lib/certs/broker.ks
-      broker-cert-pass: change*me
-      adminpass: change*me
-      amqpass: change*me
+      broker-cert-pass: yghxln
+      adminpass: yghxln
+      amqpass: yghxln
       dbuser: $OO_GLOBAL{SEARCHMQDBUSER}
       dbpass: $OO_GLOBAL{SEARCHMQDBPASSWORD}
       searchmqdb: $OO_GLOBAL{SEARCHMQDB}
@@ -70,7 +72,7 @@ platforms:
           - 8161 8162 tcp 0.0.0.0/0
       compute/oneops.1.Compute:
         compute:
-          size: M
+          size: S
           ostype: centos-7.2
       certificate/oneops.1.Certificate:
         broker-cert:
@@ -99,7 +101,7 @@ platforms:
           initmemory: '4096'
           adminconsolekeystorepassword: $OO_LOCAL{adminpass}
           brokerpassword: $OO_LOCAL{broker-cert-pass}
-          adminpassword: changeme
+          adminpassword: yghxln
           environment:
             KLOOPZ_AMQ_PASS: $OO_LOCAL{amqpass}
           brokerusername: system
@@ -118,7 +120,7 @@ platforms:
               content: |-
                   curl -L -o /opt/activemq/lib/jackson-core-asl-1.8.11.jar $OO_CLOUD{nexus}/nexus/content/repositories/public/org/codehaus/jackson/jackson-core-asl/1.8.11/jackson-core-asl-1.8.11.jar
                   curl -L -o /opt/activemq/lib/jackson-mapper-asl-1.8.11.jar $OO_CLOUD{nexus}/nexus/content/repositories/public/org/codehaus/jackson/jackson-mapper-asl/1.8.11/jackson-mapper-asl-1.8.11.jar
-                  curl -L -o /opt/activemq/lib/postgresql-9.0-801.jdbc4.jar $OO_CLOUD{nexus}/nexus/content/repositories/public/postgresql/postgresql/9.0-801.jdbc4/postgresql-9.0-801.jdbc4.jar
+                  curl -L -o /opt/activemq/lib/postgresql-9.4-1212.jar $OO_CLOUD{nexus}/nexus/content/repositories/public/postgresql/postgresql/9.4-1212/postgresql-9.4-1212.jar
               exec_cmd: |-
                 chmod 777 /tmp/get_pg_libs.sh
                 /tmp/get_pg_libs.sh

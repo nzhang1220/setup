@@ -80,7 +80,7 @@ platforms:
          artifact-cost:
            install_dir: $OO_LOCAL{install-dir}
            path: /nexus
-           password: '::ENCRYPTED::'
+           password: 'yghxln'
            as_user: ooadmin
            as_group: ooadmin
            location: $OO_LOCAL{distbase}/oneops-batch-$OO_LOCAL{version}.tar.gz

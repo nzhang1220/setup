@@ -11,7 +11,7 @@ platforms:
       variables:
         deploycontext: adapter
         version: $OO_GLOBAL{VERSION}
-        notifypass: '::ENCRYPTED::'
+        notifypass: 'yghxln'
         ecv-user: $OO_GLOBAL{ECV-USER}
         ecv-secret: $OO_GLOBAL{ECV-SECRET}
         tomcatloglocation: $OO_GLOBAL{TOMCATLOGLOCATION}
@@ -126,7 +126,7 @@ platforms:
                     mkdir -p $CERT_DIR
                     echo $OO_LOCAL{cms-db-des-key}>$CERT_DIR/oo.key
                 basic_auth_user: ''
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 checksum: ''
                 source: ''
                 priority: '1'
@@ -152,7 +152,7 @@ platforms:
         artifact/oneops.1.Artifact:
           app:
             install_dir: /opt/oneops/artifact
-            password: '::ENCRYPTED::'
+            password: 'yghxln'
             restart: |
                   node.set["oneops"] = {
 
@@ -199,7 +199,7 @@ platforms:
                 path: /tmp/download_file
                 exec_cmd: curl -v -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                   PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/offline
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 basic_auth_user: ''
                 checksum: ''
                 source: ''
@@ -211,7 +211,7 @@ platforms:
                 headers: ''
                 exec_cmd: curl -v   -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                   PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/online
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 basic_auth_user: ''
                 checksum: ''
                 source: ''
@@ -222,7 +222,7 @@ platforms:
                 headers: ''
                 path: /tmp/download_file
                 exec_cmd: curl "http://localhost:8080/$OO_LOCAL{deploycontext}/rest/cm/simple/vars?name=IS_OPAMP_SUSPENDED&value=false"
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 basic_auth_user: ''
                 checksum: ''
                 source: ''
@@ -234,7 +234,7 @@ platforms:
                 headers: ''
                 exec_cmd: curl "http://localhost:8080/$OO_LOCAL{deploycontext}/rest/cm/simple/vars?name=IS_CMS_PUB_ACTIVE&value=true"
                 basic_auth_user: ''
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 checksum: ''
                 source: ''
                 priority: '1'
@@ -244,7 +244,7 @@ platforms:
                 path: /tmp/download_file
                 headers: ''
                 exec_cmd: curl "http://localhost:8080/$OO_LOCAL{deploycontext}/rest/cm/simple/vars?name=IS_OPAMP_SUSPENDED&value=true"
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 basic_auth_user: ''
                 checksum: ''
                 source: ''
@@ -256,7 +256,7 @@ platforms:
                 path: /tmp/download_file
                 exec_cmd: curl "http://localhost:8080/$OO_LOCAL{deploycontext}/rest/cm/simple/vars?name=IS_CMS_PUB_ACTIVE&value=false"
                 basic_auth_user: ''
-                basic_auth_password: '::ENCRYPTED::'
+                basic_auth_password: 'yghxln'
                 checksum: ''
                 source: ''
                 priority: '1'

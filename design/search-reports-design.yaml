@@ -29,7 +29,7 @@ platforms:
       artifact/oneops.1.Artifact:
         kibana:
           install_dir: /opt/oneops
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           as_user: root
           restart: ''
 

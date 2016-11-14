@@ -6,7 +6,7 @@ platforms:
     variables:
       oneops-admin-version: 1.0.0
       circuit-oneops-1-version: changeme
-      truststore-password: '::ENCRYPTED::'
+      truststore-password: 'yghxln'
       truststore-location: /opt/oneops/inductor/lib/client.ts
       domain: changeme
     components:
@@ -60,7 +60,7 @@ platforms:
       circuit/oneops.1.Artifact:
         circuit-oneops-1:
           install_dir: $OO_LOCAL{inductor-dir}/circuit-oneops-1
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           restart: |
               link "$OO_LOCAL{inductor-dir}/inductor/circuit-oneops-1" do
                 to "$OO_LOCAL{inductor-dir}/circuit-oneops-1/current"
@@ -115,7 +115,7 @@ platforms:
               headers: ''
               path: /tmp/client_cert.txt
               basic_auth_user: ''
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               exec_cmd: |
                 TRUSTSTORE_FILE=$OO_LOCAL{truststore-location}
                 if [ -e "$TRUSTSTORE_FILE" ]

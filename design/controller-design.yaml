@@ -19,7 +19,7 @@ platforms:
          - searchdb
     variables:
         deploycontext: controller
-        notifypass: '::ENCRYPTED::'
+        notifypass: 'yghxln'
         antenna-retry-dir: /mnt/retry/controller/antenna/
         search-retry-dir: /mnt/retry/controller/search/
         activiti-db-host: activitidb
@@ -183,7 +183,7 @@ platforms:
       artifact/oneops.1.Artifact:
         app:
           install_dir: /opt/oneops/artifact
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           restart: |
                       node.set["oneops"] = {
 
@@ -260,7 +260,7 @@ platforms:
               run_on: on-demand
       keystore/oneops.1.Keystore:
         keystore:
-          keystore_password: '::ENCRYPTED::'
+          keystore_password: 'yghxln'
           keystore_filename: /var/lib/certs/keystore.jks
       certificate/oneops.1.Certificate:
         certificate: {}

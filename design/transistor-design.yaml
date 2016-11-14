@@ -10,7 +10,7 @@ platforms:
      - cmsdb
      variables:
         deploycontext: transistor
-        notifypass: '::ENCRYPTED::'
+        notifypass: 'yghxln'
         version: $OO_GLOBAL{VERSION}
         ecv-user: $OO_GLOBAL{ECV-USER}
         ecv-secret: $OO_GLOBAL{ECV-SECRET}
@@ -138,7 +138,7 @@ platforms:
                     mkdir -p $CERT_DIR
                     echo $OO_LOCAL{cms-db-des-key}>$CERT_DIR/oo.key
                basic_auth_user: ''
-               basic_auth_password: '::ENCRYPTED::'
+               basic_auth_password: 'yghxln'
                checksum: ''
                source: ''
                priority: '1'
@@ -153,7 +153,7 @@ platforms:
        artifact/oneops.1.Artifact:
          app:
            install_dir: /opt/oneops/artifact
-           password: '::ENCRYPTED::'
+           password: 'yghxln'
            restart: |
                  node.set["oneops"] = {
 
@@ -201,7 +201,7 @@ platforms:
                headers: ''
                exec_cmd: curl -v  -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                  PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/offline
-               basic_auth_password: '::ENCRYPTED::'
+               basic_auth_password: 'yghxln'
                basic_auth_user: ''
                checksum: ''
                source: ''
@@ -213,7 +213,7 @@ platforms:
                headers: ''
                exec_cmd: curl -v   -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                  PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/online
-               basic_auth_password: '::ENCRYPTED::'
+               basic_auth_password: 'yghxln'
                basic_auth_user: ''
                checksum: ''
                source: ''
@@ -222,7 +222,7 @@ platforms:
                run_on: on-demand
        keystore/oneops.1.Keystore:
          keystore:
-           keystore_password: '::ENCRYPTED::'
+           keystore_password: 'yghxln'
            keystore_filename: /var/lib/certs/keystore.jks
        certificate/oneops.1.Certificate:
          certificate: {}

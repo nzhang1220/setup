@@ -11,7 +11,7 @@ platforms:
         backup-host: $OO_GLOBAL{BACKUP-HOST}
         cms-db-user: $OO_GLOBAL{CMS-DB-USER}
         cms-db-pass: $OO_GLOBAL{CMS-DB-PASS}
-        perf-user-pass: '::ENCRYPTED::'
+        perf-user-pass: 'yghxln'
      components:
        compute/oneops.1.Compute:
           compute:

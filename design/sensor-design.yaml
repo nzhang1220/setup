@@ -20,7 +20,7 @@ platforms:
         deploycontext: sensor
         esper-version: 4.4.0
         esper-repository: Spring-milestone-repository
-        notifypass: '::ENCRYPTED::'
+        notifypass: 'yghxln'
         esper-install-dir: /opt/oneops/artifact/esper
         sensorpoolsize: $OO_GLOBAL{SENSOR-POOL-SIZE}
         version: $OO_GLOBAL{VERSION}
@@ -154,7 +154,7 @@ platforms:
             cms-cert:
               path: /tmp/download_file
               headers: ''
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               exec_cmd: "CERT_FILE=$OO_LOCAL{cms-des-file-location}\r\nCERT_DIR=$OO_LOCAL{install-dir}/certs/\r\nmkdir
                 -p $CERT_DIR\r\necho $OO_LOCAL{cms-db-des-key}>$CERT_DIR/oo.key\r\n\r\n\r\n\r\n"
               basic_auth_user: ''
@@ -172,7 +172,7 @@ platforms:
       artifact/oneops.1.Artifact:
         app:
           install_dir: /opt/oneops/artifact
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           restart: |
                 node.set["oneops"] = {
 
@@ -230,7 +230,7 @@ platforms:
             disableECV:
               path: /tmp/download_file
               headers: ''
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               basic_auth_user: ''
               exec_cmd: curl -v  -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                 PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/offline
@@ -242,7 +242,7 @@ platforms:
             enableECV:
               headers: ''
               path: /tmp/download_file
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               basic_auth_user: ''
               exec_cmd: curl -v  -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                 PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/online
@@ -262,7 +262,7 @@ platforms:
           should_expand: 'false'
       keystore/oneops.1.Keystore:
         keystore:
-          keystore_password: '::ENCRYPTED::'
+          keystore_password: 'yghxln'
           keystore_filename: /var/lib/certs/keystore.jks
       certificate/oneops.1.Certificate:
         certificate: {}

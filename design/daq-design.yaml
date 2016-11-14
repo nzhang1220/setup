@@ -100,7 +100,7 @@ platforms:
       artifact/oneops.1.Artifact:
         collector-artifact:
           install_dir: /opt/oneops/artifact
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           as_user: root
           restart: |
               execute "cp /opt/oneops/artifact/releases/$OO_GLOBAL{VERSION}/oneops/dist/daq-collector-1.0.0.jar /opt/oneops/artifact/releases/$OO_GLOBAL{VERSION}/oneops/dist/daq-1.0.0.jar"
@@ -155,7 +155,7 @@ platforms:
               path: /etc/default/logstash
               basic_auth_user: ''
               exec_cmd: ''
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               checksum: ''
               source: ''
               priority: '1'
@@ -172,7 +172,7 @@ platforms:
             logstash-oneops-output-plugin:
               headers: ''
               path: /opt/oneops/copy_ls_daq_output_plugin.sh
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               basic_auth_user: ''
               exec_cmd: "chmod +x /opt/oneops/copy_ls_daq_output_plugin.sh;
                          /opt/oneops/copy_ls_daq_output_plugin.sh;"
@@ -213,7 +213,7 @@ platforms:
     variables:
         deploycontext: daq
         version: daq-api-$OO_GLOBAL{VERSION}
-        notifypass: '::ENCRYPTED::'
+        notifypass: 'yghxln'
         ecv-user: $OO_GLOBAL{ECV-USER}
         ecv-secret: $OO_GLOBAL{ECV-SECRET}
         tomcatloglocation: $OO_GLOBAL{TOMCATLOGLOCATION}
@@ -330,7 +330,7 @@ platforms:
                 CERT_DIR=$OO_LOCAL{install-dir}/certs/
                 mkdir -p $CERT_DIR
                 echo $OO_LOCAL{cms-db-des-key}>$CERT_DIR/oo.key
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               checksum: ''
               source: ''
               priority: '1'
@@ -345,7 +345,7 @@ platforms:
       artifact/oneops.1.Artifact:
         app:
           install_dir: /opt/oneops/artifact
-          password: '::ENCRYPTED::'
+          password: 'yghxln'
           restart: |
                 node.set["oneops"] = {
 
@@ -402,7 +402,7 @@ platforms:
               basic_auth_user: ''
               exec_cmd: curl -v  -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                 PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/offline
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               checksum: ''
               source: ''
               priority: '1'
@@ -411,7 +411,7 @@ platforms:
             enableECV:
               path: /tmp/download_file
               headers: ''
-              basic_auth_password: '::ENCRYPTED::'
+              basic_auth_password: 'yghxln'
               exec_cmd: curl -v   -u $OO_LOCAL{ecv-user}:$OO_LOCAL{ecv-secret} -X
                 PUT  http://localhost:8080/$OO_LOCAL{deploycontext}/rest/ecv/status/online
               basic_auth_user: ''
@@ -433,7 +433,7 @@ platforms:
          - daqws
       keystore/oneops.1.Keystore:
         keystore:
-          keystore_password: '::ENCRYPTED::'
+          keystore_password: 'yghxln'
           keystore_filename: /var/lib/certs/keystore.jks
       certificate/oneops.1.Certificate:
         certificate: {}
