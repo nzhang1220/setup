@@ -89,6 +89,7 @@ platforms:
           queuename: search.stream
       java/oneops.1.Java:
         java:
+          flavor: oracle
           install_dir: /usr/lib/jvm
           jrejdk: server-jre
           version: '8'
