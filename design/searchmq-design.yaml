@@ -92,6 +92,10 @@ platforms:
           install_dir: /usr/lib/jvm
           jrejdk: server-jre
           version: '8'
+      fqdn/oneops.1.Fqdn:
+        fqdn:
+          aliases:
+          - kloopzmq
       activemq/oneops.1.Activemq:
         activemq:
           version: 5.13.2
@@ -289,7 +293,8 @@ platforms:
                             http://activemq.apache.org/configuring-transports.html
                         -->
                         <transportConnectors>
-                            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>
+                            <transportConnector name="nio" uri="nio://0.0.0.0:61616"/>
+                            <transportConnector name="ssl" uri="ssl://0.0.0.0:61617"/>
                         </transportConnectors>
 
                         <!-- destroy the spring context on shutdown to stop jetty -->
