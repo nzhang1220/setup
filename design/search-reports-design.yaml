@@ -37,11 +37,14 @@ platforms:
           configure: |
                       bash 'update_kibana_config' do
                         code <<-EOH
-                       cd $OO_LOCAL{install-dir}/kibana
-                        sed -i 's/localhost:9200/searchdb.$OO_GLOBAL{DOMAIN}:9200/g' config.js
+                        `rm -rf /opt/oneops/kibana
+                        mv /opt/oneops/releases/3.0.1/kibana-3.0.1 /opt/oneops/kibana
+                        cd /opt/oneops/kibana
+                        sed -i 's/window.location.hostname/\"searchdb.$OO_GLOBAL{DOMAIN}\"/g' config.js
                         EOH
                       end
-          location: https://download.elasticsearch.org/kibana/kibana/kibana-3.0.1.tar.gz
+          location: http://download.elastic.co/kibana/kibana/kibana-3.0.1.tar.gz
+          version: 3.0.1
           repository: thirdparty
           url: $OO_CLOUD{nexus}/nexus/
           username: gecnexus

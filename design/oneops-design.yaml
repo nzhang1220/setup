@@ -12,8 +12,7 @@ import:
 - https://raw.githubusercontent.com/oneops/setup/master/design/search-logs-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/search-reports-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/searchdb-design.yaml
-# - https://raw.githubusercontent.com/oneops/setup/master/design/searchmq-design.yaml
-- https://dl.dropboxusercontent.com/u/67472622/searchmq-design.yaml
+- https://raw.githubusercontent.com/nzhang1220/setup/master/design/searchmq-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/sensor-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/transistor-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/transmitter-design.yaml
@@ -41,7 +40,7 @@ variables:
   CMS-DES-FILE-LOCATION: /usr/local/oneops/certs/oo.key
   SEARCH-AMQ-PASS: 'yghxln'
   SEARCH-AMQ-USER: 'nzhang2'
-  VERSION: 16.06.24-RC1
+  VERSION: 16.09.19-RC1
   BACKUP-HOST : '**changeme**'
   AMQHOST: 'wire'
   AMQUSER: 'superuser'

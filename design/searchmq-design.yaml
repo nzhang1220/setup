@@ -38,10 +38,6 @@ platforms:
           password: 'yghxln'
           dbname: $OO_LOCAL{searchmqdb}
           username: $OO_LOCAL{dbuser}
-      fqdn/oneops.1.Fqdn:
-        fqdn:
-          aliases:
-          - searchmqdb
       lb/oneops.1.Lb:
         lb:
          listeners:
@@ -155,7 +151,7 @@ platforms:
                     </bean>
 
                     <bean id="postgres-ds" class="org.postgresql.ds.PGPoolingDataSource" destroy-method="close">
-                        <property name="serverName" value="searchmqdb"/>
+                        <property name="serverName" value="searchmqdb.$OO_GLOBAL{DOMAIN}"/>
                         <property name="databaseName" value="$OO_LOCAL{searchmqdb}"/>
                         <property name="portNumber" value="5432"/>
                         <property name="user" value="$OO_LOCAL{dbuser}"/>
