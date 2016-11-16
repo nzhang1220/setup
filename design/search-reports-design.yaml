@@ -37,7 +37,7 @@ platforms:
           configure: |
                       bash 'update_kibana_config' do
                         code <<-EOH
-                        `rm -rf /opt/oneops/kibana
+                        rm -rf /opt/oneops/kibana
                         mv /opt/oneops/releases/3.0.1/kibana-3.0.1 /opt/oneops/kibana
                         cd /opt/oneops/kibana
                         sed -i 's/window.location.hostname/\"searchdb.$OO_GLOBAL{DOMAIN}\"/g' config.js
