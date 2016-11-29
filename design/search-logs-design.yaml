@@ -5,6 +5,18 @@ platforms:
     eslogs:
         pack: oneops/es:1
         components:
+          fqdn/oneops.1.Fqdn:
+            fqdn:
+              aliases:
+              - eslog
+          secgroup/oneops.1.Secgroup:
+            secgroup:
+              inbound:
+              - 22 22 tcp 0.0.0.0/0
+              - 9200 9400 tcp 0.0.0.0/0
+              - 5000 5000 tcp 0.0.0.0/0
+              - 1936 1936 tcp 0.0.0.0/0
+              - 35854 35854 tcp 0.0.0.0/0
           volume/oneops.1.Volume:
             volume:
               size: 100%FREE

@@ -11,9 +11,18 @@ platforms:
         activitidbpass: $OO_GLOBAL{ACTIVITI-DB-PASS}
         activitidbuser: $OO_GLOBAL{ACTIVITI-DB-USER}
      components:
+       fqdn/oneops.1.Fqdn:
+         fqdn:
+           aliases:
+           - activitidb
        compute/oneops.1.Compute:
           compute:
-            size: L
+            size: S
+       os/oneops.1.Os:
+         os:
+         ostype: centos-7.2
+         repo_list:
+           - 'yum-config-manager --add-repo https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64 ; echo gpgcheck=0 >> /etc/yum.repos.d/*postgresql.org_pub_repos_yum_9.2_redhat_rhel-7-x86_64.repo'
        database/oneops.1.Database:
          database:
            dbname: activitidb

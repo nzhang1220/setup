@@ -23,6 +23,10 @@ platforms:
       version: $OO_GLOBAL{VERSION}
 
     components:
+      fqdn/oneops.1.Fqdn:
+        fqdn:
+        aliases:
+        - displaydb
       secgroup/oneops.1.Secgroup:
         secgroup:
           inbound:
@@ -32,7 +36,11 @@ platforms:
       compute/oneops.1.Compute:
         compute:
           size: M
-          ostype: centos-7.2
+      os/oneops.1.Os:
+        os:
+        ostype: centos-7.2
+        repo_list:
+          - 'yum-config-manager --add-repo https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64 ; echo gpgcheck=0 >> /etc/yum.repos.d/*postgresql.org_pub_repos_yum_9.2_redhat_rhel-7-x86_64.repo'
 
       library/oneops.1.Library:
         library:
@@ -60,7 +68,7 @@ platforms:
         database:
           dbname: $OO_GLOBAL{DISPLAY-DB-NAME}
           username: $OO_GLOBAL{DISPLAY-DB-USERNAME}
-          password: 'changeme'
+          password: $OO_GLOBAL{DISPLAY-DB-PASSWORD}
 
       artifact/oneops.1.Artifact:
         display:
@@ -132,7 +140,7 @@ platforms:
 
       cms-site: http://cmsapi:8080/
       transistor-site: http://transistor:8080/
-      metrics-site: http://daq:8080/
+      metrics-site: http://daq-api-1.0.0:8080/
       events-site: http://sensor:8080/
       notifications-site: http://antenna:8080/
       search-site: http://search:9200/

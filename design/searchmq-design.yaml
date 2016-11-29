@@ -24,7 +24,7 @@ platforms:
         os:
           ostype: centos-7.2
           repo_list:
-            - 'yum -y localinstall https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64/pgdg-centos94-9.2-2.noarch.rpm'
+            - 'yum-config-manager --add-repo https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64 ; echo gpgcheck=0 >> /etc/yum.repos.d/*postgresql.org_pub_repos_yum_9.2_redhat_rhel-7-x86_64.repo'
       postgresql/oneops.1.Postgresql:
         postgresql:
           version: 9.2
@@ -95,7 +95,7 @@ platforms:
       fqdn/oneops.1.Fqdn:
         fqdn:
           aliases:
-          - kloopzmq
+          - searchmq
       activemq/oneops.1.Activemq:
         activemq:
           version: 5.13.2

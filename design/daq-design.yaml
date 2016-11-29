@@ -16,6 +16,10 @@ platforms:
       version: $OO_GLOBAL{VERSION}
       sensorpoolsize: $OO_GLOBAL{SENSOR-POOL-SIZE}
     components:
+      fqdn/oneops.1.Fqdn:
+        fqdn:
+          aliases:
+          - daqdb
       file/oneops.1.File:
         compact:
           path: /opt/oneops/cassandra_compact.sh
@@ -57,7 +61,7 @@ platforms:
           path: /opt/.certs/logstash.key
       compute/oneops.1.Compute:
         compute:
-          size: XL
+          size: S
           hosts:
             daq: 127.0.0.1
           additional_search_domains:
@@ -69,12 +73,12 @@ platforms:
           fstype: xfs
       cassandra/oneops.1.Cassandra:
         cassandra:
-          cluster: TestCluster
+          cluster: PerfAndLogCluster
           max_heap_size: default
           seed_count: '1'
           num_tokens: '256'
           partitioner: org.apache.cassandra.dht.RandomPartitioner
-          version: '2.0'
+          version: '2.1.9'
           heap_newsize: default
           endpoint_snitch: org.apache.cassandra.locator.Propertyoneops.1.FileSnitch
       user/oneops.1.User:
@@ -90,7 +94,7 @@ platforms:
           placement_strategy: NetworkTopologyStrategy
           keyspace_name: mdb
           replication_factor: '2'
-
+          extra: ''
       secgroup/oneops.1.Secgroup:
         secgroup: {}
       java/oneops.1.Java:
@@ -137,8 +141,8 @@ platforms:
           pattern: cassandra
         ntpd:
           service_name: ntpd
-          use_script_status: 'true'
           control_script_location: /etc/init.d/ntpd
+          pattern: ntpd
       logstash/oneops.1.Logstash:
         logstash:
           outputs:
@@ -211,8 +215,8 @@ platforms:
     links:
      - daqdb
     variables:
-        deploycontext: daq
-        version: daq-api-$OO_GLOBAL{VERSION}
+        deploycontext: daq-api-1.0.0
+        version: $OO_GLOBAL{VERSION}
         notifypass: 'yghxln'
         ecv-user: $OO_GLOBAL{ECV-USER}
         ecv-secret: $OO_GLOBAL{ECV-SECRET}

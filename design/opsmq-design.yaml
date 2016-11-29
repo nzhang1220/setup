@@ -11,6 +11,19 @@ platforms:
     variables:
         amqpass: 'yghxln'
     components:
+      fqdn/oneops.1.Fqdn:
+        fqdn:
+          aliases:
+          - opsmq
+      queue/oneops.1.Queue:
+        perf-in-q-1:
+          queuename: perf-in-q-1
+        perf-in-q-2:
+          queuename: perf-in-q-2
+        perf-in-q-3:
+          queuename: perf-in-q-3
+        queue-ops-ci-states:
+          queuename: ops-ci-states
       secgroup/oneops.1.Secgroup:
         secgroup:
           inbound:
@@ -24,6 +37,7 @@ platforms:
       java/oneops.1.Java:
         java:
           install_dir: /usr/lib/jvm
+          flavor: oracle
           jrejdk: server-jre
           version: '8'
       activemq/oneops.1.Activemq:
@@ -169,7 +183,7 @@ platforms:
                             http://activemq.apache.org/configuring-transports.html
                        -->
                        <transportConnectors>
-                           <transportConnector name="nio" uri="nio://0.0.0.0:61616"/>
+                           <transportConnector name="tcp" uri="tcp://0.0.0.0:61616"/>
                        </transportConnectors>
 
                        <!-- destroy the spring context on shutdown to stop jetty -->

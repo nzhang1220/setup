@@ -4,6 +4,7 @@ import:
 - https://raw.githubusercontent.com/oneops/setup/master/design/wire-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/antenna-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/cmsdb-design.yaml
+- https://raw.githubusercontent.com/oneops/setup/master/design/activitidb-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/controller-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/daq-design.yaml
 - https://raw.githubusercontent.com/oneops/setup/master/design/display-design.yaml
@@ -20,23 +21,23 @@ import:
 
 variables:
   DISTBASE: 'http://store.oneops.walmart.com/share/release/'
-  CMS-DB-PASS: 'yghxln'
   AMQPASS: 'yghxln'
-  DOMAIN: 'test-1502.active-mq.platform.sv.walmartlabs.com'
-  ECV-SECRET: 'yghxln'
+  DOMAIN: 'http://test-1502.active-mq.platform.walmartlabs.com:3000'
   DATA-RETRY-DIR: /mnt/retry/
-  API-USER: 'nzhang2'
-  API-SECRET: 'yghxln'
+  API-USER: 'oneops-api'
+  API-SECRET: 'apisecret'
   TOMCATGCLOG: /log/apache-tomcat/gc-tomcat7.log
-  INSTALL-DIR: /usr/local/oneops
+  INSTALL-DIR: /opt/oneops
   CMS-DB-HOST: '**cmsdb.changeme**'
   TOMCATLOGLOCATION: /log/tomcat
-  DOMAIN-ALIAS: 'test-1502.active-mq.platform.sv.walmartlabs.com'
+  DOMAIN-ALIAS: 'test-1502.active-mq.platform.walmartlabs.com'
   TOMCAT-ACCESS-LOG-FORMAT: '%h %{X-Cms-User}i %{X-Cms-Scope}i %{NSC-Client-IP}i %l%u %t &quot;%r&quot; %s %b %D %F'
-  CMS-DB-DES-KEY: 'yghxln'
+  CMS-DB-DES-KEY: '5dabc34579a08a4e6eb692a80372ec6be9af88582a8eb46f'
   TOMCATHEAPDUMPPATH: /mnt/cms_heapdump.hprof
-  ECV-USER: 'nzhang2'
-  CMS-DB-USER: 'nzhang2'
+  ECV-USER: 'oneops-ecv'
+  ECV-SECRET: 'ecvsecret'
+  CMS-DB-USER: 'kloopzcm'
+  CMS-DB-PASS: 'kloopzcm'
   CMS-DES-FILE-LOCATION: /usr/local/oneops/certs/oo.key
   SEARCH-AMQ-PASS: 'yghxln'
   SEARCH-AMQ-USER: 'nzhang2'
@@ -45,19 +46,20 @@ variables:
   AMQHOST: 'wire'
   AMQUSER: 'superuser'
   AMQDBNAME: 'wiredb'
-  AMQDBUSER: 'amqdb'
+  AMQDBUSER: 'nzhang2'
   AMQDBPASS: 'yghxln'
-  ACTIVITI-DB-PASS: 'yghxln'
+  ACTIVITI-DB-PASS: 'activiti'
   ACTIVITI-DB-USER: 'activiti'
   DAQ-DB: 'daqdb'
   SENSOR-POOL-SIZE : '1'
   DISPLAY-DB-NAME: display
   DISPLAY-DB-USERNAME: display
-  DISPLAY-DB-PASSWORD: 'yghxln'
+  DISPLAY-DB-PASSWORD: 'display'
   DISPLAY-RAILS-ENV: enterprise
   SEARCHMQDB: searchmq
   SEARCHMQDBUSER: searchmq
-  SEARCHMQDBPASSWORD: 'yghxln'
+  SEARCHMQDBPASSWORD: 'searchmq'
+  CIRCUIT-VERSION: '5.0.476'
 
 
 

@@ -12,6 +12,10 @@ platforms:
       dbpass: $OO_GLOBAL{AMQDBPASS}
       dbname: $OO_GLOBAL{AMQDBNAME}
     components:
+      fqdn/oneops.1.Fqdn:
+        fqdn:
+          aliases:
+          - wiredb
       secgroup/oneops.1.Secgroup:
         secgroup:
           inbound:
@@ -20,7 +24,11 @@ platforms:
       compute/oneops.1.Compute:
         compute:
           size: M
+      os/oneops.1.Os:
+        os:
           ostype: centos-7.2
+          repo_list:
+            - 'yum-config-manager --add-repo https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-7-x86_64 ; echo gpgcheck=0 >> /etc/yum.repos.d/*postgresql.org_pub_repos_yum_9.2_redhat_rhel-7-x86_64.repo'
       postgresql/oneops.1.Postgresql:
         postgresql:
           version: 9.2
@@ -76,21 +84,12 @@ platforms:
            - kloopzmq
           ptr_source: platform
           distribution: proximity
-      certificate/oneops.1.Certificate:
-        broker-cert:
-          cacertkey:
-          passphrase:
-          cert:
-          key:
       java/oneops.1.Java:
         java:
           install_dir: /usr/lib/jvm
+          flavor: oracle
           jrejdk: server-jre
           version: '8'
-      keystore/oneops.1.Keystore:
-        broker-keystore:
-          keystore_password: 'changeme'
-          keystore_filename: $OO_LOCAL{broker-cert-location}
       topic/oneops.1.Topic:
         topic-cms-all:
           topicname: CMS.ALL
@@ -121,9 +120,9 @@ platforms:
       activemq/oneops.1.Activemq:
         activemq:
           version: 5.13.2
-          brokerauthenabled: 'true'
+          brokerauthenabled: 'false'
           maxmemory: '4096'
-          adminconsolesecure: 'true'
+          adminconsolesecure: 'false'
           initmemory: '4096'
           adminconsolekeystorepassword: $OO_LOCAL{adminpass}
           brokerpassword: $OO_LOCAL{broker-cert-pass}
@@ -287,10 +286,6 @@ platforms:
                             </jdbcPersistenceAdapter>
                         </persistenceAdapter>
 
-                    <sslContext>
-                      <sslContext keyStore="$OO_LOCAL{broker-cert-location}" keyStorePassword="$OO_LOCAL{broker-cert-pass}"/>
-                    </sslContext>
-
                     <plugins>
                       <bean xmlns="http://www.springframework.org/schema/beans" id="authorizationPlugin" class="com.oneops.amq.plugins.OneopsAuthPlugin">
                         <property name="cms" ref="cmsClient"/>
@@ -303,7 +298,7 @@ platforms:
                             http://activemq.apache.org/configuring-transports.html
                         -->
                         <transportConnectors>
-                                <transportConnector name='nio' uri='nio://0.0.0.0:61616' />
+                                <transportConnector name='tcp' uri='tcp://0.0.0.0:61616' />
                                 <transportConnector name='nio+ssl' uri='nio+ssl://0.0.0.0:61617' />
                         </transportConnectors>
 

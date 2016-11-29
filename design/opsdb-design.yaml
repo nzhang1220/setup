@@ -5,9 +5,13 @@ platforms:
   opsdb:
     pack: oneops/cassandra:1
     components:
+    fqdn/oneops.1.Fqdn:
+      fqdn:
+        aliases:
+        - opsdb
     compute/oneops.1.Compute:
             compute:
-              size: XL
+              size: S
               hosts:
                 daq: 127.0.0.1
               additional_search_domains:
@@ -57,12 +61,12 @@ platforms:
         fstype: xfs
     cassandra/oneops.1.Cassandra:
       cassandra:
-        cluster: TestCluster
+        cluster: sensor_ksp
         max_heap_size: default
         seed_count: '1'
         num_tokens: '256'
         partitioner: org.apache.cassandra.dht.RandomPartitioner
-        version: '2.0'
+        version: '2.1.9'
         heap_newsize: default
         endpoint_snitch: org.apache.cassandra.locator.Propertyoneops.1.FileSnitch
       user/oneops.1.User:
